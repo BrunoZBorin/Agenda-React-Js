@@ -22,7 +22,7 @@ export default function ContactList(){
         setList(
             list.map(el => 
                 el.id === item.id 
-                ? {...el, name : item.name, email : item.email } 
+                ? {...el, name : item.name, email : item.email, cargo : item.cargo, empresa : item.empresa } 
                 : el
         ))
         setEdit({editForm: false})
@@ -30,13 +30,13 @@ export default function ContactList(){
 
     let cards = list.map(contact =>(
         <div>
-            <div key={contact.id} className='flex flex-row'>
+            <div key={contact.id} className="flex flex-row mb-4">
                 <Card  data={contact}/>
-                <button onClick={()=>editItem(contact)}>
+                <button onClick={()=>editItem(contact)} className="p-4 bg-white text-gray-600 rounded-lg">
                     Editar
                 </button>
                 <button onClick={()=>deleteItem(contact.id)}>
-                    <img src={trash} className="trash" alt=""/>
+                    <img src={trash} className="trash p-6 bg-white text-gray-600 rounded-lg" alt=""/>
                 </button>
             </div>
             {edit.editForm === true && edit.editId === contact.id?
