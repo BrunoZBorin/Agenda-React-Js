@@ -2,7 +2,10 @@ import React, {useState} from 'react';
 // import validator from 'validator'
 
 export default function ContactForm(props){
-    var contatos = props.contatos
+    function getId() {
+        let id = (5999 - Math.round(Math.random() * 392))
+        return id.toString()
+    } 
     var contatoId = props.edit
     const [data, setData] = useState({name:'', email:'', id:'', cargo:'', empresa:''})
 
@@ -18,6 +21,9 @@ export default function ContactForm(props){
 
     const handleSubmit = (evt) =>{
         evt.preventDefault()
+        var Id = getId()
+        setData(data.id=Id)
+        console.log(data)
         let email = document.getElementById("email").value
         let emailValido = validateEmail(email)
         emailValido?props.save({...data}):alert("Email inválido")
@@ -52,8 +58,6 @@ export default function ContactForm(props){
                     <input required placeholder="Nome" className="border-black mb-3 text-black rounded"  onChange={changeField('name')}/>
                     <br/>
                     <input placeholder="Email" id="email" className="border-black mb-3 text-black rounded"  onChange={changeField('email')}/>
-                    <br/>
-                    <input placeholder="Id" className="border-black mb-3 text-black rounded"  onChange={changeField('id')}/>
                     <br/>
                     <input placeholder="Cargo" id="cargo" className="border-black mb-3 text-black rounded" onChange={changeField('cargo')}/>
                     <br/>

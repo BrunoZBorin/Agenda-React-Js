@@ -29,8 +29,8 @@ export default function ContactList(){
     }
 
     let cards = list.map(contact =>(
-        <div>
-            <div key={contact.id} className="flex flex-row mb-4">
+        <div key={contact.id}>
+            <div  className="flex flex-row mb-4">
                 <Card  data={contact}/>
                 <button onClick={()=>editItem(contact)} className="p-4 bg-white text-gray-600 rounded-lg">
                     Editar
