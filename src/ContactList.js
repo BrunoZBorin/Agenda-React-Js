@@ -2,7 +2,8 @@ import React, {useState} from 'react'
 import Card from './ContactCard';
 import {getContacts} from './Contatos';
 import ContactForm from './ContactForm'
-import trash from './delete.png';
+import excluir from './excluir.png';
+import editar from './editar.png';
 
 export default function ContactList(){
     
@@ -33,10 +34,10 @@ export default function ContactList(){
             <div  className="flex flex-row mb-4">
                 <Card  data={contact}/>
                 <button onClick={()=>editItem(contact)} className="p-4 bg-white text-gray-600 rounded-lg">
-                    Editar
+                    <img src={editar}  alt=""/>
                 </button>
-                <button onClick={()=>deleteItem(contact.id)}>
-                    <img src={trash} className="trash p-6 bg-white text-gray-600 rounded-lg" alt=""/>
+                <button onClick={()=>deleteItem(contact.id)} className="p-4 bg-white text-gray-600 rounded-lg">
+                    <img src={excluir} alt=""/>
                 </button>
             </div>
             {edit.editForm === true && edit.editId === contact.id?

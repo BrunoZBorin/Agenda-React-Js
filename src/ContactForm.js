@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-// import validator from 'validator'
 
 export default function ContactForm(props){
     function getId() {
