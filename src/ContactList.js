@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import Card from './ContactCard';
-import {getContacts} from './Contatos';
 import ContactForm from './ContactForm';
 
 export default function ContactList(){
