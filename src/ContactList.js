@@ -5,7 +5,7 @@ import ContactForm from './ContactForm';
 
 export default function ContactList(){
     
-    let [list, setList] = useState(getContacts())
+    let [list, setList] = useState([/*{name:'', email:'', id:'', cargo:'', empresa:''}*/])
     let [edit, setEdit] = useState({editForm:false, editId:''})
     
     const addItem = (item) => setList([...list, item])
@@ -51,5 +51,5 @@ export default function ContactList(){
             <div>{cards}</div>
         </div>
         
-    )
+    )   
 }
